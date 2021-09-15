@@ -1,21 +1,23 @@
-// function highLightSquare() {
-//     document.getElementById("row1col1").style.backgroundColor = green
-// }
+const squares = document.querySelectorAll(".playField > div")
 
-// document.getElementById("row1col1").addEventListener("mouseover", function highlightSquare() {
-//     console.log('clicked')
-//     this.style.backgroundColor = "#FFFF11"
-// })
+squares.forEach(square => {
+    square.addEventListener("click", highlightSquare)
+    console.log("clickSquare")
+})
 
-// document.getElementById("row2col2").addEventListener("mouseover", function highlightSquare() {
-//     console.log('clicked')
-//     this.style.backgroundColor = "#FFFF11"
-// })
+//document.getElementById("0").addEventListener("click", 
+function highlightSquare() {
+    console.log('clicked')
+    if (playerTurn === 1) {
+        this.style.backgroundColor = "#FF1111"
+        restoreBackground = "#FF1111"
+    } else {
+        this.style.backgroundColor = "#1111FF"
+        restoreBackground = "#1111FF"
+    }    
+}
 
-// document.getElementById("row3col3").addEventListener("mouseover", function highlightSquare() {
-//     console.log('clicked')
-//     this.style.backgroundColor = "#FFFF11"
-// })
+
 let playerTurn = 1
 
 document.querySelector(".playField").addEventListener("click", function switchPlayer() {
@@ -33,10 +35,20 @@ document.querySelector("#newGameBtn").addEventListener("click", function newGame
     document.getElementById("whosTurn").innerHTML = `Your turn, player ${playerTurn}`
 })
 
+let restoreBackground
+
+function getBackground() {
+    myDivSquare = document.getElementById("0")
+    restoreBackground = window.getComputedStyle(myDivSquare).backgroundColor
+    console.log(restoreBackground)
+}
+
 function hoverOnSquare(x) {
-    x.style.backgroundColor = "#DDDD11"
+   // x.style.backgroundColor = "#DDDD11"
+   getBackground()
+    x.style.backgroundColor = "rgba(180, 180, 100, 0.2)"
 }
 
 function noHoverOnSquare(x) {
-    x.style.backgroundColor = "#FFFFFF"
+    x.style.backgroundColor = restoreBackground
 }
