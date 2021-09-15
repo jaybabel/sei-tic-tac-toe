@@ -1,9 +1,30 @@
 body {
-
+    background-color: cornflowerblue;
 }
 
 h1 {
     color: red;
-    font-size: large;
+    font-size: larger;
     text-align: center;
+}
+
+.playField {
+    background-color: cornsilk;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 525px;
+    height: 525px
+
+}
+
+.gSquares {
+    height: 170px;
+    width: 170px;
+    border: solid black medium;
+    background-color: #FFFFFF;
+}
+
+footer {
+    margin: 25px auto;
 }

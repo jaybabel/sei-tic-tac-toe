@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,11 +12,22 @@
         <h1>Jay's Fabulous Tic-Tac-Toe Challenge</h1>
     </header>
     <main>
-
+        <h2 id="whosTurn">Your turn, player 1</h2>
+        <div class="playField">
+            <div class="gSquares" id="row1col1" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="rowc1ol2" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="row1col3" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="row2col1" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="row2col2" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="row2col3" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="row3col1" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="row3col2" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+            <div class="gSquares" id="row3col3" onmouseenter="hoverOnSquare(this)" onmouseleave="noHoverOnSquare(this)"></div>
+        </div>
     </main>
     <footer>
-
+        <button type="button" id="newGameBtn">New Game</button>
     </footer>
-    <script src="scipt.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
