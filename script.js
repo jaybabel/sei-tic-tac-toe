@@ -22,8 +22,15 @@ function checkResults() {
     resultsArray[6] = fieldArray[0] + fieldArray[4] + fieldArray[8]  // diag upper left to lower right
     resultsArray[7] = fieldArray[2] + fieldArray[4] + fieldArray[6]  // diag upper right to lower left
     for (i=0; i<8; i++) {
-        if (resultsArray[i] === 3) { console.log("Player 1, red wins!") }
-        if (resultsArray[i] === -3) { console.log("Player 2, blue wins!") }
+        if (resultsArray[i] === 3) { 
+            document.getElementById("whosTurn").innerHTML = "Player 1, red wins!"
+        }
+        if (resultsArray[i] === -3) { 
+            document.getElementById("whosTurn").innerHTML = "Player 2, blue wins!"            
+        }
+        else if (turnCount > 8){
+            document.getElementById("whosTurn").innerHTML = "There are no winners. Only losers."            
+        }
     }
 }
 
@@ -54,7 +61,9 @@ document.querySelector("#newGameBtn").addEventListener("click", function newGame
     document.getElementById("whosTurn").innerHTML = `Your turn, player ${i}`
     fieldArray = ["0", "0", "0", "0", "0", "0", "0", "0", "0"]
     turnCount = 0
-    document.querySelector(".playField").style.backgroundColor = "rgb(250, 243, 216)"
+    for (i = 0; i < 9; i++) {
+        document.getElementById(`${i}`).style.backgroundColor = "rgb(255, 255, 255)"
+    }
 })
 
 
