@@ -1,6 +1,6 @@
 
 body {
-    background-color: cornflowerblue;
+    background-color: rgb(106, 148, 226);
 }
 
 main {
@@ -11,8 +11,15 @@ main {
 }
 
 h1 {
-    color: darkred;
+    color: gold;
     font-size: 24pt;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    color: red;
+    font-size: 20pt;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }

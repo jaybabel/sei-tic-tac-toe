@@ -23,19 +23,26 @@ function checkResults() {
     resultsArray[7] = fieldArray[2] + fieldArray[4] + fieldArray[6]  // diag upper right to lower left
     for (i=0; i<8; i++) {
         if (resultsArray[i] === 3) { 
+            document.querySelector("h2").style.color = "#FF0000"
             document.getElementById("whosTurn").innerHTML = "Player 1, red wins!"
+            turnCount = 10
         }
-        if (resultsArray[i] === -3) { 
-            document.getElementById("whosTurn").innerHTML = "Player 2, blue wins!"            
+        if (resultsArray[i] === -3) {
+            document.querySelector("h2").style.color = "#0000FF" 
+            document.getElementById("whosTurn").innerHTML = "Player 2, blue wins!" 
+            turnCount = 10           
         }
-        else if (turnCount > 8){
+        else if ((turnCount > 8) && (turnCount < 10)){
+            document.querySelector("h2").style.color = "#000000" 
             document.getElementById("whosTurn").innerHTML = "There are no winners. Only losers."            
         }
     }
 }
 
 function highlightSquare(event) {
-    if (fieldArray[event.target.id] == 0) {
+    if (turnCount === 10) {
+        document.getElementById("whosTurn").innerHTML = "You wanna another piece of me?. Hit the new game button."
+    } else if (fieldArray[event.target.id] == 0) {
         if (player1) {
             event.target.style.backgroundColor = "#FF1111"
             fieldArray[event.target.id] = 1
@@ -46,8 +53,14 @@ function highlightSquare(event) {
         player1 = !player1
         turnCount ++
         let i
-        if (player1) { i = 1 } 
-        if (!player1) { i = 2 }
+        if (player1) { 
+            i = 1
+            document.querySelector("h2").style.color = "#FF0000" 
+        } 
+        if (!player1) { 
+            i = 2
+            document.querySelector("h2").style.color = "#0000FF" 
+        }
         document.getElementById("whosTurn").innerHTML = `Your turn, player ${i}`
         if (turnCount > 4) { checkResults() }
     }
@@ -56,8 +69,14 @@ function highlightSquare(event) {
 document.querySelector("#newGameBtn").addEventListener("click", function newGame() {
     player1 = Math.floor(Math.random()*2)
     let i
-    if (player1) { i = 1 } 
-    if (!player1) { i = 2 }
+    if (player1) { 
+        i = 1
+        document.querySelector("h2").style.color = "#FF0000"
+    } 
+    if (!player1) { 
+        i = 2
+        document.querySelector("h2").style.color = "#0000FF" 
+    }
     document.getElementById("whosTurn").innerHTML = `Your turn, player ${i}`
     fieldArray = ["0", "0", "0", "0", "0", "0", "0", "0", "0"]
     turnCount = 0
@@ -66,50 +85,3 @@ document.querySelector("#newGameBtn").addEventListener("click", function newGame
     }
 })
 
-
-
-
-// document.querySelector(".playField").addEventListener("click", function switchPlayer() {
-//     player1 = !player1
-//     let i
-//     if (player1) { i = 1 } 
-//     if (!player1) { i = 2 }
-//     document.getElementById("whosTurn").innerHTML = `Your turn, player ${i}`
-// })
-
-// function highlightSquare() {
-//     console.log('clicked')
-//     if (playerTurn === 1) {
-//         this.style.backgroundColor = "#FF1111"
-//         restoreBackground = "#FF1111"
-//     } else {
-//         this.style.backgroundColor = "#1111FF"
-//         restoreBackground = "#1111FF"
-//     }    
-// }
-
-    // let i = Math.floor(Math.random()*2+1)
-    // if (i == 1) {
-    //     player1 = true
-    // } else {
-    //     player1 = false
-    // }
-
-
-// let restoreBackground
-
-// function getBackground() {
-//     myDivSquare = document.getElementById("0")
-//     restoreBackground = window.getComputedStyle(myDivSquare).backgroundColor
-//     console.log("restore color:", restoreBackground)
-// }
-
-// function hoverOnSquare(x) {
-//    // x.style.backgroundColor = "#DDDD11"
-//    getBackground()
-//     x.style.backgroundColor = "rgba(180, 180, 100, 0.2)"
-// }
-
-// function noHoverOnSquare(x) {
-//     x.style.backgroundColor = restoreBackground
-// }
